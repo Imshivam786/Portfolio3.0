@@ -1,0 +1,123 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-bottom: 0.5rem;
+}
+.navbar{
+    height: 5.5rem;
+    width: 100%;
+    background-color: #fff;
+    transition: top 0.3 ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.navbar.scrolled{
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.logo{
+    display: flex;
+    color: black;
+}
+.logo img{
+    width: 100px;
+    height: 78px;
+    background-color: #fff;
+}
+.top{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+.bottom{
+    letter-spacing: 3.7px;
+}
+.logo-inner{
+    margin: auto 0px auto 10px;
+}
+.navbar-links{
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+}
+.navbar-links ul{
+    display: flex;
+    align-items: center;
+}
+.navbar-links ul li{
+    margin-left: 2.2rem;
+}
+.navbar-links ul li a{
+    color: #000;
+    font-size: 1.188rem;
+    transition: color 0.3s;
+}
+.navbar-links ul li a:hover{
+    color: var(--danger-color);
+}
+.toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.toggle-button .line {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+.open .line{
+    background-color: #fff;
+}
+
+.open .line:nth-child(1){
+    transform: rotate(-45deg) translate(-6px,6px);
+}
+.open .line:nth-child(2){
+    opacity: 0;
+}
+.open .line:nth-child(3){
+    transform: rotate(45deg) translate(-6px,-6px);
+}
+@media screen and (max-width:890px) {
+    .navbar-links{
+        position: fixed;
+        inset: 0;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: #000;
+        width: 100%;
+        max-height: 0;
+        z-index: 999;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+    .navbar-links ul{
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar-links ul li{
+        margin: 10px 0;
+    }
+    .navbar-links ul li a{
+        color: #fff;
+        transition: color;
+    }
+    .navbar-links.show{
+        max-height: 100vh;
+        transition: 0.4s ease-in-out;
+    }
+}

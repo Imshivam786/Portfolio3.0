@@ -1,0 +1,206 @@
+.skills {
+    padding-top: 5rem;
+}
+.title{
+    text-align: start;
+    font-size: 1.5rem;
+}
+.title span{
+    color:  var(--danger-color);
+}
+
+.title hr{
+    width: 80px;
+    padding: 0 74px;
+    border: 1px solid #000;
+}
+.skills-grid{
+    grid-template-columns: repeat(2,1fr);
+}
+
+.content h1> span{
+    font-size: 3rem;
+}
+.content p {
+    font-size: 20px;
+}
+.progress-line {
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+    position: relative;
+    transform: scaleX(1);
+    border-radius: 10px;
+}
+
+.progress-line span{
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #000;
+    animation: progressBar 4s cubic-bezier(0,0,0,1) forwards;
+}
+
+.progress-line.js span{
+    width: 90%; 
+}
+.progress-line.react span{
+    width: 80%; 
+}
+.progress-line.next span{
+    width: 85%; 
+}
+.progress-line.ts span{
+    width: 75%; 
+}
+
+.progress-line span::before{
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: -10px;
+    height: 0;
+    width: 0;
+    border-left: 0px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 13px solid #000;
+    transform: translateX(50deg);
+    opacity: 0;
+    animation: percentage 0.5s 1.5s linear forwards;
+}
+
+.progress-line span::after{
+    position: absolute;
+    top:-35px;
+    right: -30px;
+    font-weight: 500;
+    background-color: #000;
+    color: #fff;
+    padding: 1px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    opacity: 0;
+    animation: percentage 0.5s 1.5s linear forwards ;
+}
+
+.progress-line.js span::after{
+    content: '90%';
+}
+.progress-line.react span::after{
+    content: '80%';
+}
+.progress-line.next span::after{
+    content: '85%';
+}
+.progress-line.ts span::after{
+    content: '75%';
+}
+
+.bottom {
+    position: relative;
+    background: url('../../../public/images/bg-dark.jpg') no-repeat center/cover;
+    color: #fff;
+    margin-top: 5rem;
+}
+
+.bottom::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    mix-blend-mode: multiply;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+}
+
+.flex h3{
+    font-size: 2rem;
+    mix-blend-mode: screen;
+    position: relative;
+}
+
+.flex h3::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: #fff;
+    bottom: 11px;
+    left: 100%;
+    opacity: 1;
+    animation: blink 0.9s infinite;
+}
+
+.flex a{
+    position: relative;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    mix-blend-mode: screen;
+}
+
+.flex a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    border: 1.8px solid #fff;
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.19,1,0.22,1);
+    transform-origin: right center;
+}
+
+.flex a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 0.4s;
+}
+
+@keyframes progressBar {
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes percentage{
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .flex{
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+    }
+    .flex h3{
+        font-size: 1.5rem;
+    }
+}

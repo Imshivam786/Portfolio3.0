@@ -1,0 +1,16 @@
+.bar{
+    margin: 20px 0;
+}
+
+.bar:first-child {
+    margin-top: 0;
+}
+
+.label{
+    margin-bottom: 5px;
+}
+
+.label span{
+    font-weight: 700;
+    font-size: 1.25rem;
+}
